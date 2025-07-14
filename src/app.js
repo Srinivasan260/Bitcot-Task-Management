@@ -2,12 +2,13 @@ import express from 'express';
 import dotenv from 'dotenv';
 import helmet from 'helmet';
 import rateLimit from 'express-rate-limit';
-import mongoSanitize from 'express-mongo-sanitize';
+
 import authRoutes from './routes/auth.routes.js';
 import taskRoutes from './routes/task.routes.js';
 import activityRoutes from './routes/activity.routes.js';
 import userRoutes from './routes/user.routes.js';
 import errorHandler from './middlewares/error.js';
+
 
 dotenv.config();
 const app = express();
@@ -23,8 +24,7 @@ const limiter = rateLimit({
 
 app.use('/api', limiter);
 
-// Data sanitization
-app.use(mongoSanitize());
+
 
 app.use(express.json());
 

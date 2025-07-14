@@ -52,11 +52,7 @@ ELASTICSEARCH_NODE=http://localhost:9200
 JWT_SECRET=your_jwt_secret_key
 JWT_EXPIRES_IN=24h
 
-# Nodemailer configuration for sending emails
-EMAIL_HOST=smtp.mailtrap.io
-EMAIL_PORT=2525
-EMAIL_USER=your_mailtrap_user
-EMAIL_PASS=your_mailtrap_password
+
 ```
 
 ## Available Scripts

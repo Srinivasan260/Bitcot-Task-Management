@@ -7,5 +7,5 @@ export const logActivity = async (userId, taskId, action) => {
 };
 
 export const getUserActivity = async (userId) => {
-  return await Activity.find({ user: userId }).populate('task').sort({ timestamp: -1 });
+  return await Activity.find({ user: userId }).populate('task').populate('user').sort({ timestamp: -1 });
 };

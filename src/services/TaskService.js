@@ -1,4 +1,4 @@
-// src/services/taskService.js
+
 import { Task } from '../models/TaskModel.js';
 import { client } from '../config/elasticSearch.js';
 import { User } from '../models/UserModel.js';
@@ -16,7 +16,7 @@ export const createTaskService = async (data, user, file) => {
     };
 
     if (file) {
-        taskData.attachment = file.path; // Save file path
+        taskData.attachment = file.path; 
     }
 
     const task = await Task.create(taskData);
@@ -116,14 +116,12 @@ export const getTasksService = async (filters) => {
 
 
 export const updateTaskStatusService = async (id, status, userId) => {
-
-    //  Update task in MongoDB
+  
     const task = await Task.findByIdAndUpdate(id, { status }, { new: true });
     if (!task) throw new Error('Task not found');
 
     const { _id, __v, ...esDoc } = task.toObject();
 
-    //  Re-index in Elasticsearch
     await client.index({
         index: 'tasks',
         id: task._id.toString(),
@@ -142,7 +140,7 @@ export const updateTaskStatusService = async (id, status, userId) => {
         }
     }
 
-    // ✅ Step 4: Log activity (with dynamic message)
+   // Log activity (with dynamic message)
     const activityText =
         status === 'Completed'
             ? `Marked task as completed `
