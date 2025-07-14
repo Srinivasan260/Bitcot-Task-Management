@@ -11,7 +11,7 @@ This is a backend service for a Task Management application, built with Node.js 
 -   **Authentication**: JSON Web Tokens (JWT)
 -   **Validation**: Joi
 -   **File Uploads**: Multer
--   **Logging**: Morgan
+
 
 ## Prerequisites
 
@@ -23,7 +23,7 @@ This is a backend service for a Task Management application, built with Node.js 
 
 1.  **Clone the repository:**
     ```bash
-    git clone <your-repository-url>
+    git clone https://github.com/Srinivasan260/Bitcot-Task-Management.git
     ```
 2.  **Navigate to the project directory:**
     ```bash
@@ -71,9 +71,9 @@ JWT_EXPIRES_IN=24h
 
 ### Users
 
--   `POST /api/user/register`: Register a new user.
--   `PUT /api/user/update/:id`: Update a user's details (protected).
--   `DELETE /api/user/:id`: Delete a user (protected).
+-   `POST /api/users/register`: Register a new user.
+-   `PUT /api/users/update/:id`: Update a user's details (protected).
+-   `DELETE /api/users/:id`: Delete a user (protected).
 
 ### Tasks
 
@@ -83,4 +83,4 @@ JWT_EXPIRES_IN=24h
 
 ### Activity Logs
 
--   `GET /api/Activity`: Fetch activity logs for the logged-in user (protected).
+-   `GET /api/activities`: Fetch activity logs for the logged-in user (protected).
